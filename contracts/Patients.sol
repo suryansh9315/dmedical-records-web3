@@ -8,7 +8,7 @@ contract Patients {
         string gender;
         string height;
         uint256 weight;
-        uint256 phone_no;
+        string phone_no;
         string email_id;
         uint256 date;
         uint256 doctor_id;
@@ -34,12 +34,12 @@ contract Patients {
         string memory _patient_gender,
         string memory _patient_height,
         uint256 _patient_weight,
-        uint256 _patient_ph_no,
+        string memory _patient_ph_no,
         string memory _patient_email_id,
         uint256 _date,
         uint256 _doctor_id,
         uint256 _hospital_id
-    ) public isOwner returns(uint256) {
+    ) public returns(uint256) {
         Patient storage patient = patientlist[numberofPatients];
         patient.patient_name = _patient_name;
         patient.patient_age = _patient_age;
@@ -57,7 +57,7 @@ contract Patients {
         return numberofPatients - 1;
     }
 
-    function getPatient(uint256 _id) public view returns(string memory,uint256,string memory,string memory,uint256,uint256,string memory,uint256,uint256,uint256){
+    function getPatient(uint256 _id) public view returns(string memory,uint256,string memory,string memory,uint256,string memory,string memory,uint256,uint256,uint256){
         Patient memory p = patientlist[_id];
         return(p.patient_name,p.patient_age,p.gender,p.height,p.weight,p.phone_no,p.email_id,p.date,p.doctor_id,p.hospital_id);
     }

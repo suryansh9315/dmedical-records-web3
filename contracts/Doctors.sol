@@ -5,7 +5,7 @@ contract Doctors {
     struct Doctor {
         string doctor_name;
         string doctor_specialisation;
-        uint256 doctor_ph_no;
+        string doctor_ph_no;
         string doctor_uid;
     }
     mapping(uint256 => Doctor) doctorList;
@@ -25,9 +25,9 @@ contract Doctors {
     function addDoctor(
         string memory _doctor_name,
         string memory _doctor_specialisation,
-        uint256 _doctor_ph_no,
+        string memory _doctor_ph_no,
         string memory _doctor_uid
-    ) public isOwner returns (uint256) {
+    ) public returns (uint256) {
         Doctor storage doct = doctorList[numberOfDoctors];
 
         doct.doctor_name = _doctor_name;
@@ -45,7 +45,7 @@ contract Doctors {
         returns (
             string memory,
             string memory,
-            uint256,
+            string memory,
             string memory
         )
     {
